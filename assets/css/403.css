@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700;800;900&display=swap");
+
+:root {
+	--black: #080808;
+	--white: #F1F1F1;
+	--gray: #808080;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--black);
+}
+
+svg {
+	width: 100%;
+	visibility: hidden;
+}
+
+h2 {
+	font-size: 10em;
+	font-family: 'Alegreya Sans', sans-serif;
+	margin: 10px 0px;
+}
+
+p {
+	font-size: 1em;
+	font-weight: 400;
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		display: block;
+	}
+
+	.container {
+		margin-top: 75px;
+		margin-bottom: 75px;
+	}
+}
