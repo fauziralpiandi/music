@@ -2,7 +2,7 @@ name: Static
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "404" ]
 
   workflow_dispatch:
 
