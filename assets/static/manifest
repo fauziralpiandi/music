@@ -3,8 +3,8 @@
   "short_name": "Music App",
 	"keywords": "musik, music, web, app, fauzira, alpiandi, fwzyrln"
   "icons": [ { "src": "./assets/static/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" }, { "src": "./assets/static/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" } ],
-  "theme_color": "#f1f1f1",
-  "background_color": "#f1f1f1",
+  "theme_color": "#080808",
+  "background_color": "#080808",
   "display": "standalone",
 	"start_url": "/"
 }
