@@ -4,7 +4,8 @@ const toCache = [
 	'/index.html',
 	'/assets/css/stylesheet.css',
 	'/assets/js/javascript.js',
-	'/assets/js/register.js'
+	'/assets/js/register.js',
+	'/assets/static/manifest'
 ];
 
 self.addEventListener('install', function(event) {
