@@ -1,25 +1,45 @@
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = [
+const CACHE_NAME = 'SW-001';
+const toCache = [
 	'/',
-	'/assets/js/register.js',
-	'https://fauziralpiandi.github.io/music'
+	'/index.html',
+	'/assets/css/stylesheet.css',
+	'/assets/js/javascript.js',
+	'/assets/js/register.js'
 ];
 
 self.addEventListener('install', function(event) {
-	// Install Service Worker
-	event.waitUntil(
-		caches.open(CACHE_NAME).then(function(cache) {
-			console.log('Opened cache');
-			return cache.addAll(urlsToCache);
-		})
-	);
-});
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+        .then(function(cache) {
+            return cache.addAll(toCache)
+        })
+        .then(self.skipWaiting())
+    )
+})
 
 self.addEventListener('fetch', function(event) {
-	// Intercept requests and serve from cache if available
-	event.respondWith(
-		caches.match(event.request).then(function(response) {
-			return response || fetch(event.request);
-		})
-	);
-});
+    event.respondWith(
+        fetch(event.request)
+        .catch(() => {
+            return caches.open(CACHE_NAME)
+            .then((cache) => {
+                return cache.match(event.request)
+            })
+        })
+    )
+})
+
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys()
+        .then((keyList) => {
+            return Promise.all(keyList.map((key) => {
+                if (key !== CACHE_NAME) {
+                    console.log('[ServiceWorker] Delete old cache', key)
+                    return caches.delete(key)
+                }
+            }))
+        })
+        .then(() => self.clients.claim())
+    )
+})
