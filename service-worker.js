@@ -1,6 +1,7 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
 	'/',
+	'/assets/js/register.js',
 	'https://fauziralpiandi.github.io/music'
 ];
 
